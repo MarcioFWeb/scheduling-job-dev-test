@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -u"
   },
   "author": "Marcio A. O. Figueiredo",
   "license": "MIT License",
+  "jest": {
+    "verbose": true
+  },
   "dependencies": {},
   "devDependencies": {
     "jest": "^26.0.1"

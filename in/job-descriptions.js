@@ -12,10 +12,28 @@
 
 */
 
-const input_data = [
-    {
-        // TODO
-    }
-]
+const input_data = 
+    [
+        {
+            id: 1,
+            description: 'Importação de arquivos de fundos',
+            max_execution_date: '2019-11-10 12:00:00',
+            estimated_time: '2 horas'
+        },
+        {
+            id:  2,
+            description: 'Importação de dados da Base Legada',
+            max_execution_date: '2019-11-11 12:00:00',
+            estimated_time: '4 horas'
+        },
+        {
+            id:  3,
+            description: 'Importação de dados de integração',
+            max_execution_date: '2019-11-11 08:00:00',
+            estimated_time: '6 horas'
+        }
+    ]
 
-export default input_data
+module.exports = { 
+    input_data
+}

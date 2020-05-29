@@ -10,6 +10,8 @@
 */
 
 /* IMPORTS */
+jobsUtils = require('./utils/jobsgrouping.js')
+
 // TODO: Import INIT data
 
 // TODO: Create first test (TDD -> Fail)
@@ -18,16 +20,8 @@
 // TODO: Run tests (fail)
 // TODO: Update instuctions and documentation
 
-const JobsGroupingForTimeLimit = (jobsToGrouping) => {
-
-    // TODO: Jobs Grouping logic
-
-    return jobsToGrouping
-
-}
-
 /* ROUTINE LOGIC */
 
-const routineResult = JobsGroupingForTimeLimit({ routine: 'run' })
+const routineResult = jobsUtils.JobsGroupingForTimeLimit({ routine: 'run' })
 
 console.log(JSON.stringify(routineResult))

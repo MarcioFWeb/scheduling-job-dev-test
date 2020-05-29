@@ -18,6 +18,10 @@ Instructions for using the routine and running the tests. / Instruções para ut
 - **Git installed** on your operating system so you can clone the repository.
 - **Optionally** you can **download the repository** directly here from Github as a compressed file and unzip into a folder of your choice.
 - **Node.js installed** on your operating system. [Download](https://nodejs.org/en/download/) | [Install](https://nodejs.org/en/download/package-manager/)
+- After the node is downloaded and installed (or if you already have it), enter the application folder and run the command:
+```
+npm install
+```
 
 ## Requisitos:
 - **Git instalado** em seu sistema operacional para pode clonar o repositório.
@@ -29,8 +33,6 @@ npm install
 ```
 
 ## How to run / Como executar
-**TODO:** Complete the documentation. / Completar a documentação.  
-
 * To execute / Para executar:
 ```
 npm start

@@ -1,0 +1,16 @@
+{
+  "name": "schedulingob",
+  "version": "0.0.1",
+  "description": "Scheduling Job (Job Utilities: As a Job Administrator, I need to organize a list of jobs in order to group them for execution within a time limit of 8 hours.)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcio A. O. Figueiredo",
+  "license": "MIT License",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}

@@ -13,8 +13,6 @@
 jobsUtils = require('./utils/jobsgrouping.js')
 data = require('./in/job-descriptions.js')
 
-// TODO: Update instuctions and documentation
-
 /* ROUTINE LOGIC */
 const routineResult = jobsUtils.JobsGroupingForTimeLimit(data.input_data)
 

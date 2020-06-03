@@ -2,7 +2,7 @@
 
 **Routine / Rotina:** Scheduling Job  
 **Version / Versão:** 0.0.1  
-**Status:** in progress (functional)  
+**Status:** Story released
 **Epic / Épico:** Job Utilities  
 **Story / Estória:** As a Job Administrator, I need to organize a list of jobs in order to group them for execution within a time limit of 8 hours.  
 **Squad:** Digital Innovation  
@@ -37,13 +37,54 @@ npm install
 ```
 npm start
 ```
+> The results will be presented at CONSOLE. / Os resultados serão apresentados no CONSOLE.
 
 * To run the tests / Para rodar os testes:
 ```
 npm run test
 ```
+> The results will be presented at CONSOLE. / Os resultados serão apresentados no CONSOLE.
 
 ## Expected input data format / Formato esperado dos dados de entrada
-* **TODO**
+### Input data location / Localização dos dados de entrada
+The input content for processing (list of jobs to group within a time limit) must be informed in the file ***job-descriptions.js*** which in turn is inside the folder ***in***.
 
-**This documentation is still being created... / Esta documentação ainda está em criação...**  
+O conteúdo de entrada para o processamento (lista de jobs para agrupar dentro de limite de tempo) deve ser informado no arquivo ***job-descriptions.js*** que por sua vez está dentro da pasta ***in***.
+```
+~project folder~/in/job-descriptions.js
+```
+
+### Format / Formato
+```json
+[
+	{
+		id: 0, // number
+		description: 'description | descrição', // string
+		max_execution_date: '2099-12-31 12:00:00', // timestamp
+		estimated_time: '2 horas' // string [x hours |x horas]
+	}
+]
+```
+### Example / Exemplo
+```json
+[
+	{
+		id:  1,
+		description:  'Importação de arquivos de imagens',
+		max_execution_date:  '2019-11-10 12:00:00',
+		estimated_time:  '2 horas'
+	},
+	{
+		id:  2,
+		description:  'Importação de dados da Base Legada',
+		max_execution_date:  '2019-11-11 12:00:00',
+		estimated_time:  '4 horas'
+	},
+	{
+		id:  3,
+		description:  'Importação de dados de integração',
+		max_execution_date:  '2019-11-11 08:00:00',
+		estimated_time:  '6 horas'
+	}
+]
+```

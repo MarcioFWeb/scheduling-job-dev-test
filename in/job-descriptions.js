@@ -25,7 +25,7 @@ const input_data =
         {
             id:  2,
             description: 'Importação de dados da Base Legada',
-            max_execution_date: '2019-11-11 12:00:00',
+            max_execution_date: '2019-11-09 12:00:00',
             estimated_time: '4 horas'
         },
         {

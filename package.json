@@ -12,7 +12,9 @@
   "jest": {
     "verbose": true
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.26.0"
+  },
   "devDependencies": {
     "jest": "^26.0.1"
   }

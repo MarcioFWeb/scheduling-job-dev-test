@@ -1,5 +1,8 @@
 /* jobsGrouping Routines */
 
+/* imports */
+dateTime = require('./dateTime')
+
 /* constants */
 jobGroupTimeLimit = 8 // (in hours)
 
@@ -45,11 +48,16 @@ function EstimatedTimeSlotGrouping(jobsToGroup, jobIdsAlreadyGrouped) {
     let remainingTimeLimit = jobGroupTimeLimit - actualSlot[0].estimated_time.value
     slotObjectOfJobsGroupedByTime.jobIdsAlreadyGrouped.push(actualSlot[0].id)
     slotObjectOfJobsGroupedByTime.idsOfJobsGrouped.push(actualSlot[0].id)
+    slotObjectOfJobsGroupedByTime.max_execution_date = actualSlot[0].max_execution_date
 
     /* completing slot array if time is left */
     let arrayOfJobsThatFitInTheEstimatedTime = []
     if (remainingTimeLimit > 0) {
-        arrayOfJobsThatFitInTheEstimatedTime = ComplementsSlotUntilSetTime(jobsToGroupFiltered, remainingTimeLimit)
+        arrayOfJobsThatFitInTheEstimatedTime = 
+            ComplementsSlotUntilSetTime(
+                jobsToGroupFiltered, 
+                remainingTimeLimit,
+                slotObjectOfJobsGroupedByTime.max_execution_date)
         Array.prototype.push.apply(slotObjectOfJobsGroupedByTime.jobIdsAlreadyGrouped, arrayOfJobsThatFitInTheEstimatedTime)
         Array.prototype.push.apply(slotObjectOfJobsGroupedByTime.idsOfJobsGrouped, arrayOfJobsThatFitInTheEstimatedTime)
     }    
@@ -60,7 +68,7 @@ function EstimatedTimeSlotGrouping(jobsToGroup, jobIdsAlreadyGrouped) {
 }
 
 /* (Util) Complements slot with jobs within the defined time */
-function ComplementsSlotUntilSetTime(jobsToFill, limitTimeLeft) {
+function ComplementsSlotUntilSetTime(jobsToFill, limitTimeLeft, maxExecutionDate) {
 
     /* initializations */
     let selectedComplementaryJobs = []
@@ -74,10 +82,18 @@ function ComplementsSlotUntilSetTime(jobsToFill, limitTimeLeft) {
         /* add the job to the slot and follow the selection as long as time is available */
         if ((jobsMatchTimeArray.length > 0) && (actualTime > 0)) {        
             jobsMatchTimeArray.forEach(jobMatchTime => {
+                /* verify job time to run comparing to time left in slot */
                 if (jobMatchTime.estimated_time.value <= actualTime) {
-                    selectedComplementaryJobs.push(jobMatchTime.id)
-                    actualTime -= jobMatchTime.estimated_time.value
-                    leftJobsToFillArray = leftJobsToFillArray.filter(job =>  job.id != jobMatchTime.id)
+                    /* verify job max execution date comparing with slot first selected */
+                    let dateDif = 
+                        dateTime.dateTimeDiferenceInMinutes(jobMatchTime.max_execution_date, maxExecutionDate)
+                    /* add job time to max execution date */
+                    dateDif -= (jobMatchTime.estimated_time.value * 60)
+                    if (dateDif > 0) {
+                        selectedComplementaryJobs.push(jobMatchTime.id)
+                        actualTime -= jobMatchTime.estimated_time.value
+                        leftJobsToFillArray = leftJobsToFillArray.filter(job =>  job.id != jobMatchTime.id)
+                    }                    
                 }                
             })
         }        

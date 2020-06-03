@@ -8,7 +8,7 @@
 **Squad:** Digital Innovation  
 **Author / Autor:** Marcio A. O. Figueiredo <marciofweb@gmail.com> | [About me](https://www.linkedin.com/in/marciofigueiredoweb/)  
 **Creation / Criação:** 2020-05-28  
-**Last Change / Útima alteração:** 2020-05-29  
+**Last Change / Útima alteração:** 2020-06-03  
 
 # Instructions / Instruções
 

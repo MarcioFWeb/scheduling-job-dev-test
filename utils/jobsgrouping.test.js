@@ -2,10 +2,9 @@
 
 /* IMPORTS */
 jobsUtils = require('./jobsgrouping.js')
-data = require('../in/job-descriptions')
+data = require('../in/job-descriptions.js')
 
 /* TEST DATA */
-
 const input_data_to_test = data.input_data    
 
 const output_data_test_success = 
@@ -15,7 +14,6 @@ const output_data_test_success =
     ]
 
 /* TEST IMPLEMENTATION */
-
 test('correct grouping of jobs', () => {
     expect(
         jobsUtils.JobsGroupingForTimeLimit(input_data_to_test)

@@ -5,23 +5,18 @@
    Squad        : Digital Innovation
    Author       : Marcio A. O. Figueiredo <marciofweb@gmail.com>
    Creation     : 2020-05-28
-   Last Change  : 2020-05-28
+   Last Change  : 2020-06-03
    Instructions : See the README.md file
 */
 
 /* IMPORTS */
 jobsUtils = require('./utils/jobsgrouping.js')
+data = require('./in/job-descriptions.js')
 
-// TODO: Import INIT data
-
-// TODO: Create first test (TDD -> Fail)
-// TODO: Implement Grouping logic
-// TODO: Run tests (succes)
-// TODO: Run tests (fail)
 // TODO: Update instuctions and documentation
 
 /* ROUTINE LOGIC */
+const routineResult = jobsUtils.JobsGroupingForTimeLimit(data.input_data)
 
-const routineResult = jobsUtils.JobsGroupingForTimeLimit({ routine: 'run' })
-
-console.log(JSON.stringify(routineResult))
+/* PRINT RESULT INTO CONSOLE */
+console.log(`Jobs Grouped: ${JSON.stringify(routineResult, null, "\t")}`)
